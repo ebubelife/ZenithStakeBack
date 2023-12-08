@@ -357,7 +357,7 @@ class SalesController extends Controller
 
         }else{
 
-            $sales_by_user = Sales::where('affiliate_id', )
+            $sales_by_user = Sales::where('affiliate_id', 'DN3jYz')
             ->where('created_at', '>=', Carbon::parse($from))
             ->where('created_at', '<=', Carbon::parse($to))
             ->where('product_id', '1')
