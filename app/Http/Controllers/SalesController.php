@@ -354,7 +354,7 @@ class SalesController extends Controller
           //  ->where('created_at', '>=', Carbon::parse($from))
          //   ->where('created_at', '<=', Carbon::parse($to))
 
-            ->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)])
+            ->whereBetween('created_at', [$from,$to])
       
             ->get();
 
@@ -363,9 +363,9 @@ class SalesController extends Controller
             $sales_by_user = Sales::where('affiliate_id', 'DN3jYz')
          //   ->where('created_at', '>=', Carbon::parse($from))
          //  ->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)])
-         ->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)])
+         ->whereBetween('created_at', $from, $to)
       
-            ->where('created_at', '<=', Carbon::parse($to))
+          //  ->where('created_at', '<=', Carbon::parse($to))
             ->where('product_id', '1')
             ->get();
 
