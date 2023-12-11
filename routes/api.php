@@ -326,14 +326,7 @@ Route::get('view/affiliates/order', function () {
 });
 
 
-Route::get('view/affiliates/unpaid', function () {
-    $affiliates = Members::where('is_vendor', false)
-    -> where('unpaid_balance', '!=', '0.00')
-    ->orderByDesc('created_at')
-    ->get();
 
-    return response()->json( $affiliates);
-});
 
 
 
@@ -346,38 +339,32 @@ Route::get('view/affiliates/unpaid', function () {
         return response()->json( $affiliates);
     });
 
-    Route::get('view/affiliates/total', function () {
-        $affiliate = Members::where('is_vendor', false)
-            ->where("id", "!=", 507)
-            ->orderByDesc('unpaid_balance')
-            ->get(); // Retrieve the record with the highest unpaid_balance
-        
+    Route::get('view/affiliates/unpaid/total', function () {
+        $affiliates = Members::where('is_vendor', false)
+          ->where('unpaid_balance',"!=","0.00")
+           // ->orderByDesc('created_at')
+            ->where("id","!=",507)
+            ->get();
+    
         $sumTotalAffCash = 0;
         $sumTotalAff = 0;
         $sumTotalUnpaid = 0;
-    
-        if ($affiliate) {
+        foreach ($affiliates as $affiliate) {
             $totalAffCash = intval($affiliate->total_aff_sales_cash);
             $totalAff = intval($affiliate->total_aff_sales);
             $totalUnpaidAff = intval($affiliate->unpaid_balance);
-            
             $sumTotalAffCash += $totalAffCash;
-            $sumTotalAff += $totalAff;
-            $sumTotalUnpaid += $totalUnpaidAff;
-            
-            $highestUnpaidEmail = $affiliate->email; // Retrieve the email of the user with the highest unpaid_balance
-        } else {
-            $highestUnpaidEmail = null; // If no affiliate found
+            $sumTotalAff +=$totalAff ;
+            $sumTotalUnpaid += $totalUnpaidAff ;
         }
     
         return response()->json([
-            'highest_unpaid_email' => $highestUnpaidEmail,
+            'affiliates' => count($affiliates),
             'sum_total_aff_cash' => $sumTotalAffCash,
-            'sum_total_aff_sales' => $sumTotalAff,
-            'sum_total_unpaid' => $sumTotalUnpaid,
+            'sum_total_aff_sales'=> $sumTotalAff,
+            'sum_total_unpaid'=> $sumTotalUnpaid,
         ]);
     });
-    
 
     Route::get('view/vendors', function () {
         $vendors = Members::where('is_vendor', true)
