@@ -348,6 +348,7 @@ Route::get('view/affiliates/order', function () {
            // ->orderByDesc('created_at')
            ->whereBetween('last_sale_time', ["2023-12-10", "2023-12-12"])
             ->where("id","!=",507)
+            ->orderByDesc('unpaid_balance')
             ->get();
     
         $sumTotalAffCash = 0;
