@@ -340,30 +340,37 @@ Route::get('view/affiliates/order', function () {
     });
 
     Route::get('view/affiliates/total', function () {
-        $affiliates = Members::where('is_vendor', false)
-           // ->orderByDesc('created_at')
-            ->where("id","!=",507)
-            ->get();
-    
+        $affiliate = Members::where('is_vendor', false)
+            ->where("id", "!=", 507)
+            ->orderByDesc('unpaid_balance')
+            ->first(); // Retrieve the record with the highest unpaid_balance
+        
         $sumTotalAffCash = 0;
         $sumTotalAff = 0;
         $sumTotalUnpaid = 0;
-        foreach ($affiliates as $affiliate) {
+    
+        if ($affiliate) {
             $totalAffCash = intval($affiliate->total_aff_sales_cash);
             $totalAff = intval($affiliate->total_aff_sales);
             $totalUnpaidAff = intval($affiliate->unpaid_balance);
+            
             $sumTotalAffCash += $totalAffCash;
-            $sumTotalAff +=$totalAff ;
-            $sumTotalUnpaid += $totalUnpaidAff ;
+            $sumTotalAff += $totalAff;
+            $sumTotalUnpaid += $totalUnpaidAff;
+            
+            $highestUnpaidEmail = $affiliate->email; // Retrieve the email of the user with the highest unpaid_balance
+        } else {
+            $highestUnpaidEmail = null; // If no affiliate found
         }
     
         return response()->json([
-            'affiliates' => count($affiliates),
+            'highest_unpaid_email' => $highestUnpaidEmail,
             'sum_total_aff_cash' => $sumTotalAffCash,
-            'sum_total_aff_sales'=> $sumTotalAff,
-            'sum_total_unpaid'=> $sumTotalUnpaid,
+            'sum_total_aff_sales' => $sumTotalAff,
+            'sum_total_unpaid' => $sumTotalUnpaid,
         ]);
     });
+    
 
     Route::get('view/vendors', function () {
         $vendors = Members::where('is_vendor', true)
