@@ -351,23 +351,11 @@ Route::get('view/affiliates/order', function () {
             ->orderByDesc('unpaid_balance')
             ->first();
     
-        $sumTotalAffCash = 0;
-        $sumTotalAff = 0;
-        $sumTotalUnpaid = 0;
-        foreach ($affiliates as $affiliate) {
-            $totalAffCash = intval($affiliate->total_aff_sales_cash);
-            $totalAff = intval($affiliate->total_aff_sales);
-            $totalUnpaidAff = intval($affiliate->unpaid_balance);
-            $sumTotalAffCash += $totalAffCash;
-            $sumTotalAff +=$totalAff ;
-            $sumTotalUnpaid += $totalUnpaidAff ;
-        }
+       
     
         return response()->json([
-            'affiliates' => count($affiliates),
-            'sum_total_aff_cash' => $sumTotalAffCash,
-            'sum_total_aff_sales'=> $sumTotalAff,
-            'sum_total_unpaid'=> $sumTotalUnpaid,
+         
+            'sum_total_unpaid'=> $affiliates,
         ]);
     });
 
