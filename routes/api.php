@@ -326,7 +326,14 @@ Route::get('view/affiliates/order', function () {
 });
 
 
+Route::get('view/affiliates/unpaid', function () {
+    $affiliates = Members::where('is_vendor', false)
+    -> where('unpaid_balance', '!=', '0.00')
+    ->orderByDesc('created_at')
+    ->get();
 
+    return response()->json( $affiliates);
+});
 
 
 
