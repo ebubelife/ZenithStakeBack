@@ -346,7 +346,7 @@ Route::get('view/affiliates/order', function () {
         $affiliates = Members::where('is_vendor', false)
           ->where('unpaid_balance',"!=","0.00")
            // ->orderByDesc('created_at')
-           ->whereBetween('last_sale_time', ["2023-12-09", "2023-12-11"])
+           ->whereBetween('last_sale_time', ["2023-12-10", "2023-12-12"])
             ->where("id","!=",507)
             ->get();
     
