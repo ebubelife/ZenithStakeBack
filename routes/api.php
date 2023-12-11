@@ -350,7 +350,7 @@ Route::get('view/affiliates/unpaid', function () {
         $affiliate = Members::where('is_vendor', false)
             ->where("id", "!=", 507)
             ->orderByDesc('unpaid_balance')
-            ->first(); // Retrieve the record with the highest unpaid_balance
+            ->get(); // Retrieve the record with the highest unpaid_balance
         
         $sumTotalAffCash = 0;
         $sumTotalAff = 0;
