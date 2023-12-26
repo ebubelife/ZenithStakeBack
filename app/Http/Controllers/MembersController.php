@@ -201,7 +201,7 @@ class MembersController extends Controller
 
         //generate affiliate id
         $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        $random_string = substr(str_shuffle($characters), 0, 6);
+        $random_string = substr(str_shuffle($characters), 0, 7);
         $user->affiliate_id = $random_string;
 
         $checkEmailValid = $this->checkEmailValid($user->email);
