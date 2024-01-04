@@ -132,7 +132,7 @@ class ProductsController extends Controller
         $products[$i]["vendor_data1"] = response()->json($vendor_data1);
         $products[$i]["vendor_data2"] = response()->json($vendor_data2);
 
-        $products[$i]["image_path"] = asset('https://back.zenithstake.com/storage/images/product_images/' . $products[$i]["image"]);
+        $products[$i]["image_path"] = asset('https://back.learniix.com/storage/images/product_images/' . $products[$i]["image"]);
  
 
 
@@ -157,7 +157,7 @@ else{
         $products[$i]["vendor_data1"] = response()->json($vendor_data1);
         $products[$i]["vendor_data2"] = response()->json($vendor_data2);
 
-        $products[$i]["image_path"] = asset('https://back.zenithstake.com/storage/images/product_images/' . $products[$i]["image"]);
+        $products[$i]["image_path"] = asset('https://back.learniix.com/storage/images/product_images/' . $products[$i]["image"]);
  
 
 
