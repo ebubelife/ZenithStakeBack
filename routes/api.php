@@ -339,6 +339,26 @@ Route::get('view/affiliates/order', function () {
         return response()->json( $affiliates);
     });
 
+    Route::get('view/affiliates/get/{records_limit}', function ($records_limit) {
+        // Limit the query to the first 500 records
+        $affiliates = Members::where('is_vendor', false)
+            ->orderByDesc('created_at')
+            ->take(min($records_limit, 500))
+            ->get();
+    
+        return response()->json($affiliates);
+    });
+
+    Route::get('view/affiliates/search/{search_term}', function ($search_term) {
+        // Limit the query to the first 500 records
+        $affiliates = Members::where('is_vendor', false)
+            ->where('email', 'like', '%' . $search_term . '%')
+            ->orderByDesc('created_at')
+            ->get();
+    
+        return response()->json($affiliates);
+    });
+
     Route::get('view/affiliates/unpaid/total', function () {
 
        
