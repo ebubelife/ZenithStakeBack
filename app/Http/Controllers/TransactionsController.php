@@ -196,7 +196,8 @@ class TransactionsController extends Controller
             //  ->where("affiliate_id","=" ,"DN3jYz")
              // -> where ("id", "=",3642)
               ->where("payment_reference_paystack","!=",null)
-              ->where("withdrawal_settings",true)
+              ->where("email", "muhammadthalithmuneerah591@gmail.com")
+            // ->where("withdrawal_settings",true)
              // ->whereIn("email", [ "ebubeemeka19@gmail.com","aimchinaza3039@gmail.com" ])
               ->whereRaw("CAST(unpaid_balance AS UNSIGNED) > 200")
               ->get();
