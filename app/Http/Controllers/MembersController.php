@@ -70,6 +70,22 @@ class MembersController extends Controller
         }
 
 
+        $members = Members::where('is_vendor', false)->get();
+
+           $all_emails = array();
+
+           foreach($members as $member){
+
+            $first_name = $member->firstName;
+            $email = $member->email;
+
+            if(Mail::to($email)->send(new Contest($first_name ))){
+
+                array_push($all_emails,$email );
+            }
+   
+
+        }
    
          /* if(Mail::to("kongonut@gmail.com")->send(new Contest("Ebube"))){
    
