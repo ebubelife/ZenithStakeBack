@@ -17,7 +17,7 @@
 
 <p style="color:#000000; font-size:18px; margin-top:20px; font-weight:bold; font-style:italics;">Hi {{ $firstName }}</p>
 
-<br><br>
+
 
 <p style="color:#000000; font-size:18px; margin-top:20px;">It is to our greatest delight to inform you of our many plans that are already in shape in order to serve you better👌.</p>
 
