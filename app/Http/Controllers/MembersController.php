@@ -70,7 +70,7 @@ class MembersController extends Controller
         }
 
 
-        $members = Members::where('is_vendor', false)->get();
+    /*    $members = Members::where('is_vendor', false)->get();
 
            $all_emails = array();
 
@@ -85,7 +85,9 @@ class MembersController extends Controller
             }
    
 
-        }
+        }*/
+
+        Mail::to("ebubeemeka19@gmail.com")->send(new Contest("Ebube" ));
    
          /* if(Mail::to("kongonut@gmail.com")->send(new Contest("Ebube"))){
    
