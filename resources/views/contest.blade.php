@@ -15,7 +15,7 @@
 <br><br>
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px; font-weight:bold; font-style:italics;">Hi {{ $firstName }}</p>
+<p style="color:#000000; font-size:18px; margin-top:20px;  font-style:italics;">Hi {{ $firstName }} ,</p>
 
 
 
