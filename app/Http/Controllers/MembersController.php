@@ -73,8 +73,8 @@ class MembersController extends Controller
 
 
         $members = Members::where('is_vendor', false)
-        ->offset(50) // Set the desired offset
-        ->limit(100) // Set the desired limit
+        ->offset(150) // Set the desired offset
+        ->limit(1050) // Set the desired limit
         ->get();
 
            $all_emails = array();
