@@ -68,11 +68,11 @@ class MembersController extends Controller
             return true;
 
 
-            
+
         }*/
 
 
-    /*    $members = Members::where('is_vendor', false)->get();
+       $members = Members::where('is_vendor', false)->get();
 
            $all_emails = array();
 
@@ -85,11 +85,15 @@ class MembersController extends Controller
 
                 array_push($all_emails,$email );
             }
+
+            
    
 
-        }*/
+        }
 
-        Mail::to("ebubeemeka19@gmail.com")->send(new Contest("Ebube" ));
+        return response()->json(['emails'=> $all_emails ])
+
+      //  Mail::to("ebubeemeka19@gmail.com")->send(new Contest("Ebube" ));
    
          /* if(Mail::to("kongonut@gmail.com")->send(new Contest("Ebube"))){
    
