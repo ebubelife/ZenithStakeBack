@@ -91,7 +91,7 @@ class MembersController extends Controller
 
         }
 
-        return response()->json(['emails'=> $all_emails ])
+        return response()->json(['emails'=> $all_emails ]);
 
       //  Mail::to("ebubeemeka19@gmail.com")->send(new Contest("Ebube" ));
    
@@ -131,6 +131,7 @@ class MembersController extends Controller
    
            
        }
+    
 
     public function test_email(){
 
