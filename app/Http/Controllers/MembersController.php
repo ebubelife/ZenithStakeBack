@@ -63,11 +63,13 @@ class MembersController extends Controller
    
            }*/
 
-           if(Mail::to("kongonut@gmail.com")->send(new FinishReg("Ebube","900"))){
+         /*  if(Mail::to("kongonut@gmail.com")->send(new FinishReg("Ebube","900"))){
    
             return true;
 
-        }
+
+            
+        }*/
 
 
     /*    $members = Members::where('is_vendor', false)->get();

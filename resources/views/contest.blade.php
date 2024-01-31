@@ -19,13 +19,10 @@
 
 <br><br>
 
-<p style="color:#000000; font-size:18px; margin-top:20px; font-weight:bold; font-style:italics;">It is to our greatest delight to inform you of our many plans that are already in shape in order to serve you better,👌</p>
+<p style="color:#000000; font-size:18px; margin-top:20px;">It is to our greatest delight to inform you of our many plans that are already in shape in order to serve you better👌.</p>
 
 
-<div style="width:100%;padding-top:10px; padding-bottom:10px;  text-align:center; margin-top:15px;">
-	<img src="https://www.zenithstake.com/WhatsApp%20Image%202023-06-15%20at%2010.48.29%20AM.jpeg" alt="zenithstake-contest" height="400" width="400" style="display:inline-block" />
 
-</div>
 
 <p style="color:#000000; font-size:18px; margin-top:20px; ">To start with, there is a completed revamping of SMAC to be uploaded in few days, which includes: </p>
 
