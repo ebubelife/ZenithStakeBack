@@ -73,7 +73,7 @@ class MembersController extends Controller
 
 
         $members = Members::where('is_vendor', false)
-        ->offset(12300) // Set the desired offset
+        ->offset(12600) // Set the desired offset
         ->limit(300) // Set the desired limit
         ->get();
 
