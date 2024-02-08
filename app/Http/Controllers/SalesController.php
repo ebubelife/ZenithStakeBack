@@ -193,6 +193,7 @@ class SalesController extends Controller
             //check if sale already exists with same customer email
             $check_c_email_record = Sales::where('customer_email', $validated["customer_email"])
             ->where('affiliate_id', $validated["affiliate_id"]) // Adding condition for affiliate_id
+            ->where('product_id', "1")
             ->first();
         
 
