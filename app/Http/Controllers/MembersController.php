@@ -96,7 +96,7 @@ class MembersController extends Controller
 
         $allEmails = array(
             
-            array("email"=>"olatejuolashile@gmail.com", "first_name"=>"David"),
+          /*  array("email"=>"olatejuolashile@gmail.com", "first_name"=>"David"),
             array("email"=>"olajumoke2160@gmail.com", "first_name"=>"Agbede Hashiat"),
             array("email"=>"elizabethu010@gmail.com", "first_name"=>"Elizabeth"),
             array("email"=>"jennyokapala10@gmail.com", "first_name"=>"Chinemerem"),
@@ -116,7 +116,9 @@ class MembersController extends Controller
 
             array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
 
-            array("email"=>"jennyokapala10@gmail.com", "first_name"=>"Chinemerem"),
+            array("email"=>"jennyokapala10@gmail.com", "first_name"=>"Chinemerem"),*/
+
+            array("email"=>"ebubeemeka19@gmail.com", "first_name"=>"Ebube"),
         
         );
 
