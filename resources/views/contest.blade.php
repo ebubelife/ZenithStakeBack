@@ -33,7 +33,10 @@
 
     <p style="color:#000000; font-size:18px; margin-top:20px; ">Your gift price will be on it way to you as soon as you send the following details;</p>
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; ">Your gift price will be on it way to you as soon as you send the following details;
+    <p style="color:#000000; font-size:18px; margin-top:20px; ">Account number, account name and bank name
+to this WhatsApp number 
++2349075152244
+
  </p>
 
     <p style="color:#000000; font-size:18px; margin-top:20px; ">Thank you for trusting Zenithstake to always deliver as promised..🤏</p>
