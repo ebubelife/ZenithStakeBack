@@ -35,7 +35,7 @@
 
     <p style="color:#000000; font-size:18px; margin-top:20px; ">Account number, account name and bank name
 to this WhatsApp number 
-+2349075152244
+<span style="color:#50C878">+2349075152244</span>
 
  </p>
 
