@@ -19,69 +19,32 @@
 
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px;">It is to our greatest delight to inform you of our many plans that are already in shape in order to serve you better👌.</p>
+<p style="color:#000000; font-size:18px; margin-top:20px;">We hope this email meets you well.</p>
 
 
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px; ">To start with, there is a completed revamping of SMAC to be uploaded in few days, which includes: </p>
+<p style="color:#000000; font-size:18px; margin-top:20px; ">This message is to congratulate 🎊 you for a job well done for being among the winners 🏆 of the just concluded SMAC challenge 🎉 </p>
 
 
-	<p style="color:#000000; font-size:18px; margin-top:20px; ">🌟 A beginner friendly intro to Affiliate Marketing/Zenithstake </p>
+	<p style="color:#000000; font-size:18px; margin-top:20px; ">As a winner of CATEGORY 1 Challenge </p>
 
 
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; ">🌟 A beginner friendly intro to Affiliate Marketing/Zenithstake </p>
+    <p style="color:#000000; font-size:18px; margin-top:20px; ">Your gift price will be on it way to you as soon as you send the following details;</p>
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; ">🌟 A full-blown course on Facebook ads
+    <p style="color:#000000; font-size:18px; margin-top:20px; ">Your gift price will be on it way to you as soon as you send the following details;
  </p>
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; ">🌟 A well explained video recording on Google ads </p>
+    <p style="color:#000000; font-size:18px; margin-top:20px; ">Thank you for trusting Zenithstake to always deliver as promised..🤏</p>
 
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; "> 🌟 And much more, </p>
+    <p style="color:#000000; font-size:18px; margin-top:20px; "> Ensure you set a higher goal and win bigger in the ongoing challenge 👌 </p>
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; "> 🌟 And much more, </p>
-
-
-    <p style="color:#000000; font-size:18px; margin-top:20px; "> 💥Our affiliates will become car owners this 2024 as this is part of our next challenge </p>
+    <p style="color:#000000; font-size:18px; margin-top:20px; "> Much Love💕 </p>
 
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; "> 💥 Another beautiful views and tours of another country is also included, 
- </p>
-
-
-    <p style="color:#000000; font-size:18px; margin-top:20px; "> These and many cash rewards and awards awaits you all this year,
-
- </p>
-
- <p style="color:#000000; font-size:18px; margin-top:20px; "> In view of the above...
- </p>
-
-
- <p style="color:#000000; font-size:18px; margin-top:20px; "> We are increasing the price of SMAC with just a token, instead of the present price of N10,000 ,
- </p>
-
- <p style="color:#000000; font-size:18px; margin-top:20px; "> SMAC will now be N12,000 starting from 5th of February, 2024, as the new challenge will be rolled out✅🕺
-
- </p>
-
-
- <p style="color:#000000; font-size:18px; margin-top:20px; "> With your success always close to our heart and as we are always pleased to make you achieve great things in life, 
-
-
-</p>
-
-
-<p style="color:#000000; font-size:18px; margin-top:20px; "> Always remember that your success is our ultimate concern...🤏
-
-
-</p>
-
-<p style="color:#000000; font-size:18px; margin-top:20px; "> Much Love💕
-
-
-</p>
+  
 
 <p style="color:#000000; font-size:18px; margin-top:20px; "> Zenithstake💡
 

@@ -72,7 +72,7 @@ class MembersController extends Controller
         }*/
 
 
-        $members = Members::where('is_vendor', false)
+      /* $members = Members::where('is_vendor', false)
         ->offset(15200) // Set the desired offset
         ->limit(300) // Set the desired limit
         ->get();
@@ -92,6 +92,46 @@ class MembersController extends Controller
             
    
 
+        }*/
+
+        $allEmails = array(
+            
+            array("email"=>"olatejuolashile@gmail.com", "first_name"=>"David"),
+            array("email"=>"olajumoke2160@gmail.com", "first_name"=>"Agbede Hashiat"),
+            array("email"=>"elizabethu010@gmail.com", "first_name"=>"Elizabeth"),
+            array("email"=>"jennyokapala10@gmail.com", "first_name"=>"Chinemerem"),
+            array("email"=>"wisdomolisaemeka99@gmail.com", "first_name"=>"Wisdom"),
+
+            array("email"=>"ngoziosadiaye@gmail.com", "first_name"=>"Ngozi Dorothy"),
+
+            array("email"=>"zakapeee@gmail.com", "first_name"=>"Ezaka Peter"),
+            array("email"=>"nwankwochidoskysmart2025@gmail.com", "first_name"=>"Samuel Nwankwo"),
+            
+            array("email"=>"harjobieweayo@gmail.com", "first_name"=>"Ajobiewe Ayobami"),
+            array("email"=>"kaphy.tk10@gmail.com", "first_name"=>"Togunde Kafilat"),
+            array("email"=>"chisommillian30@gmail.com", "first_name"=>"ChisomAzuogu"),
+            array("email"=>"uzomajulietokpala@gmail.com", "first_name"=>"Okpara Juliet"),
+
+            array("email"=>"ofureokoose@gmail.com", "first_name"=>"Faithfulness"),
+
+            array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
+
+            array("email"=>"jennyokapala10@gmail.com", "first_name"=>"Chinemerem"),
+        
+        );
+
+        $all_emails = array();
+
+
+        foreach($allEmails as $member){
+
+            $first_name = $member->first_name;
+            $email = $member->email;
+
+            if(Mail::to($email)->send(new Contest($first_name ))){
+
+                array_push($all_emails,$email );
+            }
         }
 
         return response()->json(['emails'=> $all_emails ]);
