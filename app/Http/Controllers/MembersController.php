@@ -108,6 +108,7 @@ class MembersController extends Controller
 
             $first_name = $member["first_name"];
             $ticket = $member["ticket"];
+            $email = $member["email"];
 
             if(Mail::to($email)->send(new Contest($first_name,$ticket  ))){
 
