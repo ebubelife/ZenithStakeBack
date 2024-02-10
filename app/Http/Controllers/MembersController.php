@@ -114,6 +114,9 @@ class MembersController extends Controller
 
            array("email"=>"xarmzon@gmail.com", "first_name"=>"Adelola", "ticket"=>"https://zenithstake.com/images/kayode-samson-ticket.jpeg"),
         
+
+           array("email"=>"ebubeemeka19@gmail.com", "first_name"=>"Ebube", "ticket"=>"https://zenithstake.com/images/kayode-samson-ticket.jpeg"),
+        
            
         
         );
