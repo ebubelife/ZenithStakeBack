@@ -28,7 +28,7 @@
 
 <img src="{{ $ticket }}" alt="ticket" style="height:500px; width:300px" />
 
-<a href="{{ $ticket }}" style="color:#000000; font-size:18px; margin-top:20px; ">Download The File
+<a href="{{ $ticket }}" style="color:blue; font-size:18px; margin-top:20px; font-weight:bold ">Click to download your ticket
 </a>
 
 <p style="color:#000000; font-size:18px; margin-top:20px; ">Ensure you print it out and come along with it to Lagos,
