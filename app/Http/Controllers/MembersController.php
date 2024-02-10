@@ -96,7 +96,24 @@ class MembersController extends Controller
 
         $allEmails = array(
             
-           array("email"=>"ebubeemeka19@gmail.com", "first_name"=>"Treasure", "ticket"=>"https://zenithstake.com/images/tickets/treasure_ticket.jpeg"),
+           array("email"=>"treasureenwerem@gmail.com", "first_name"=>"Treasure", "ticket"=>"https://zenithstake.com/images/tickets/treasure_ticket.jpeg"),
+           array("email"=>"holuwasayofunmiprecious@gmail.com", "first_name"=>"Precious", "ticket"=>"https://zenithstake.com/images/precious-ogunleye-ticket.jpeg"),
+           array("email"=>"okekeoluchukwulucy@gmail.com", "first_name"=>"Oluchukwu", "ticket"=>"https://zenithstake.com/images/tickets/okeke-oluchi-ticket.jpeg"),
+        
+           array("email"=>"obiomaprecious234@gmail.com", "first_name"=>"Obioma Precious", "ticket"=>"https://zenithstake.com/images/obioma-ticket.jpeg"),
+        
+           array("email"=>"officialnicequeen@gmail.com", "first_name"=>"Chiamaka", "ticket"=>"https://zenithstake.com/images/igwechima-ticket.jpeg"),
+        
+           array("email"=>"aderonkefaith1@gmail.com", "first_name"=>"Faith", "ticket"=>"https://zenithstake.com/images/aderonke-faith-ticket.jpeg"),
+        
+           array("email"=>"juliesilver74@gmail.com", "first_name"=>"Julian", "ticket"=>"https://zenithstake.com/images/julian-ticket.jpeg"),
+
+
+           array("email"=>"amuziefrancisca01@gmail.com", "first_name"=>"Francisca", "ticket"=>"https://zenithstake.com/images/amuzie-ticket.jpeg"),
+
+
+           array("email"=>"xarmzon@gmail.com", "first_name"=>"Adelola", "ticket"=>"https://zenithstake.com/images/kayode-samson-ticket.jpeg"),
+        
            
         
         );

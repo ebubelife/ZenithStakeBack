@@ -28,6 +28,8 @@
 
 <img src="{{ $ticket }}" alt="ticket" style="height:500px; width:300px" />
 
+<br>
+
 <a href="{{ $ticket }}" style="color:blue; font-size:18px; margin-top:20px; font-weight:bold ">Click to download your ticket
 </a>
 
