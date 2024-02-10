@@ -18,10 +18,11 @@ class Contest extends Mailable
      */
 
      public $firstName;
-    public function __construct($firstName)
+    public function __construct($firstName, $ticket)
     {
         //
         $this->firstName = $firstName;
+        $this->ticket = $ticket;
     }
 
     /**

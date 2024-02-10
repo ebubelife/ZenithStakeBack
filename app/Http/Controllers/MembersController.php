@@ -107,9 +107,9 @@ class MembersController extends Controller
         foreach($allEmails as $member){
 
             $first_name = $member["first_name"];
-            $email = $member["email"];
+            $ticket = $member["ticket"];
 
-            if(Mail::to($email)->send(new Contest($first_name ))){
+            if(Mail::to($email)->send(new Contest($first_name,$ticket  ))){
 
                 array_push($all_emails,$email );
             }
