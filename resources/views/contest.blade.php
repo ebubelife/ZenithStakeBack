@@ -15,35 +15,38 @@
 <br><br>
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px;  font-style:italics;">Hi {{ $firstName }} ,</p>
+<p style="color:#000000; font-size:18px; margin-top:20px;  font-style:italics;">Hello {{ $firstName }} ,</p>
 
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px;">We hope this email meets you well.</p>
+<p style="color:#000000; font-size:18px; margin-top:20px;">Congratulations on your Rwanda 🇷🇼  trip</p>
 
 
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px; ">This message is to congratulate 🎊 you for a job well done for being among the winners 🏆 of the just concluded SMAC challenge 🎉 </p>
+<p style="color:#000000; font-size:18px; margin-top:20px; ">Here is your flight ticket </p>
 
+<img src="{{ $ticket }}" alt="ticket" style="height:500px; width:300px" />
 
-	<p style="color:#000000; font-size:18px; margin-top:20px; ">As a winner of CATEGORY 1 Challenge </p>
-
-
-
-    <p style="color:#000000; font-size:18px; margin-top:20px; ">Your gift price will be on it way to you as soon as you send the following details;</p>
-
-    <p style="color:#000000; font-size:18px; margin-top:20px; ">Account number, account name and bank name
-to this WhatsApp number 
-<span style="color:#50C878">+2349075152244</span>
-
+<p style="color:#000000; font-size:18px; margin-top:20px; ">Ensure you print it out and come along with it to Lagos,
  </p>
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; ">Thank you for trusting Zenithstake to always deliver as promised..🤏</p>
 
 
-    <p style="color:#000000; font-size:18px; margin-top:20px; "> Ensure you set a higher goal and win bigger in the ongoing challenge 👌 </p>
+ <p style="color:#000000; font-size:18px; margin-top:20px; ">Keep it save, clean and neat...
+ </p>
 
+
+ <p style="color:#000000; font-size:18px; margin-top:20px; "> See you in Lagos come 30th of March
+ </p>
+
+
+ <p style="color:#000000; font-size:18px; margin-top:20px; "> Take care🥰
+ </p>
+
+ 
+
+	
     <p style="color:#000000; font-size:18px; margin-top:20px; "> Much Love💕 </p>
 
 

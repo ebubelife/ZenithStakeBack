@@ -96,29 +96,8 @@ class MembersController extends Controller
 
         $allEmails = array(
             
-           array("email"=>"olatejuolashile@gmail.com", "first_name"=>"David"),
-            array("email"=>"olajumoke2160@gmail.com", "first_name"=>"Agbede Hashiat"),
-            array("email"=>"elizabethu010@gmail.com", "first_name"=>"Elizabeth"),
-            array("email"=>"jennyokapala10@gmail.com", "first_name"=>"Chinemerem"),
-            array("email"=>"wisdomolisaemeka99@gmail.com", "first_name"=>"Wisdom"),
-
-            array("email"=>"ngoziosadiaye@gmail.com", "first_name"=>"Ngozi Dorothy"),
-
-            array("email"=>"zakapeee@gmail.com", "first_name"=>"Ezaka Peter"),
-            array("email"=>"nwankwochidoskysmart2025@gmail.com", "first_name"=>"Samuel Nwankwo"),
-            
-            array("email"=>"harjobieweayo@gmail.com", "first_name"=>"Ajobiewe Ayobami"),
-            array("email"=>"kaphy.tk10@gmail.com", "first_name"=>"Togunde Kafilat"),
-            array("email"=>"chisommillian30@gmail.com", "first_name"=>"ChisomAzuogu"),
-            array("email"=>"uzomajulietokpala@gmail.com", "first_name"=>"Okpara Juliet"),
-
-            array("email"=>"ofureokoose@gmail.com", "first_name"=>"Faithfulness"),
-
-            array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
-
-            array("email"=>"jennyokapala10@gmail.com", "first_name"=>"Chinemerem"),
-
-            array("email"=>"ebubeemeka19@gmail.com", "first_name"=>"Ebube"),
+           array("email"=>"ebubeemeka19@gmail.com", "first_name"=>"Treasure", "ticket"=>"https://zenithstake.com/images/tickets/treasure_ticket.jpeg"),
+           
         
         );
 

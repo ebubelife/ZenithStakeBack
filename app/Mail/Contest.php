@@ -35,6 +35,8 @@ class Contest extends Mailable
         $message = 'This is an example email sent from Laravel.';
         return $this->view('contest', ['message' => $message])
                     ->with(['firstName'=> $this->firstName])
+
+                    ->with(['ticket'=> $this->ticket])
                    
                     ->from('ZenithStake@zenithstake.com')
                     ->subject('Congratulations 🥳🥳!!');
