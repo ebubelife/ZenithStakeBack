@@ -18,11 +18,11 @@ class Contest extends Mailable
      */
 
      public $firstName;
-    public function __construct($firstName, $ticket)
+    public function __construct($firstName)
     {
         //
         $this->firstName = $firstName;
-        $this->ticket = $ticket;
+      
     }
 
     /**
@@ -37,7 +37,7 @@ class Contest extends Mailable
         return $this->view('contest', ['message' => $message])
                     ->with(['firstName'=> $this->firstName])
 
-                    ->with(['ticket'=> $this->ticket])
+                  
                    
                     ->from('ZenithStake@zenithstake.com')
                     ->subject('Congratulations 🥳🥳!!');
