@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Dear Amazing Zenithstake Affiliates</title>
+	<title>Dear Amazing Zenithstake Affiliate</title>
     <meta charset="UTF-8">
 </head>
 <body>
@@ -19,39 +19,43 @@
 
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px;">Congratulations on your Rwanda 🇷🇼  trip</p>
+<p style="color:#000000; font-size:18px; margin-top:20px;">We hope this email meets you well</p>
 
 
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px; ">Here is your flight ticket </p>
+<p style="color:#000000; font-size:18px; margin-top:20px; ">This message is to congratulate 🎊 you for a job well done for being among the winners 🏆 of the just concluded SMAC challenge 🎉 </p>
 
 <img src="{{ $ticket }}" alt="ticket" style="height:500px; width:300px" />
 
 <br>
 
-<a href="{{ $ticket }}" style="color:blue; font-size:18px; margin-top:20px; font-weight:bold ">Click to download your ticket
+<a href="{{ $ticket }}" style="color:blue; font-size:18px; margin-top:20px; font-weight:bold ">As a winner of CATEGORY 1 Challenge
 </a>
 
-<p style="color:#000000; font-size:18px; margin-top:20px; ">Ensure you print it out and come along with it to Lagos,
+<p style="color:#000000; font-size:18px; margin-top:20px; ">Your gift price will be on it way to you as soon as you send the following details;
  </p>
 
 
 
 
 
- <p style="color:#000000; font-size:18px; margin-top:20px; ">Keep it save, clean and neat...
+ <p style="color:#000000; font-size:18px; margin-top:20px; ">Account number, account name and bank name
+to this WhatsApp number 
+<span style="font-weight:bold">+2349075152244</span>
+
  </p>
 
 
- <p style="color:#000000; font-size:18px; margin-top:20px; "> See you in Lagos come 30th of March
+ <p style="color:#000000; font-size:18px; margin-top:20px; "> Thank you for trusting *Zenithstake* to always deliver as promised..🤏
  </p>
 
 
- <p style="color:#000000; font-size:18px; margin-top:20px; "> Take care🥰
+ <p style="color:#000000; font-size:18px; margin-top:20px; "> Ensure you set a higher goal and win bigger in the ongoing challenge 👌
  </p>
 
- 
+
+
 
 	
     <p style="color:#000000; font-size:18px; margin-top:20px; "> Much Love💕 </p>

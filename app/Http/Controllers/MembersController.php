@@ -95,8 +95,12 @@ class MembersController extends Controller
         }*/
 
         $allEmails = array(
+
+            array("email"=>"ofureokoose@gmail.com", "first_name"=>"Faithfulness"),
+
+            array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
             
-           array("email"=>"treasureenwerem@gmail.com", "first_name"=>"Treasure", "ticket"=>"https://zenithstake.com/images/tickets/treasure_ticket.jpeg"),
+          // array("email"=>"treasureenwerem@gmail.com", "first_name"=>"Treasure", "ticket"=>"https://zenithstake.com/images/tickets/treasure_ticket.jpeg"),
         /*   array("email"=>"holuwasayofunmiprecious@gmail.com", "first_name"=>"Precious", "ticket"=>"https://zenithstake.com/images/precious-ogunleye-ticket.jpeg"),
            array("email"=>"okekeoluchukwulucy@gmail.com", "first_name"=>"Oluchukwu", "ticket"=>"https://zenithstake.com/images/tickets/okeke-oluchi-ticket.jpeg"),
         
@@ -127,10 +131,10 @@ class MembersController extends Controller
         foreach($allEmails as $member){
 
             $first_name = $member["first_name"];
-            $ticket = $member["ticket"];
+           
             $email = $member["email"];
 
-            if(Mail::to($email)->send(new Contest($first_name,$ticket  ))){
+            if(Mail::to($email)->send(new Contest($first_name ))){
 
                 array_push($all_emails,$email );
             }
