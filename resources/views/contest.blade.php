@@ -26,12 +26,10 @@
 
 <p style="color:#000000; font-size:18px; margin-top:20px; ">This message is to congratulate 🎊 you for a job well done for being among the winners 🏆 of the just concluded SMAC challenge 🎉 </p>
 
-<img src="{{ $ticket }}" alt="ticket" style="height:500px; width:300px" />
 
-<br>
 
-<a href="{{ $ticket }}" style="color:blue; font-size:18px; margin-top:20px; font-weight:bold ">As a winner of CATEGORY 1 Challenge
-</a>
+<p  style="color:blue; font-size:18px; margin-top:20px; font-weight:bold ">As a winner of CATEGORY 1 Challenge
+</p>
 
 <p style="color:#000000; font-size:18px; margin-top:20px; ">Your gift price will be on it way to you as soon as you send the following details;
  </p>
