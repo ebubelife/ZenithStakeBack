@@ -24,7 +24,7 @@
 
 
 
-<p style="color:#000000; font-size:18px; margin-top:20px; ">This message is to congratulate 🎊 you for a job well done for being among the winners 🏆 of the just concluded SMAC challenge 🎉 </p>
+<p style="color:#000000; font-size:18px; margin-top:20px; ">This message is to congratulate 🎊 you for a job well done and for being among the winners 🏆 of the just concluded SMAC challenge 🎉 </p>
 
 
 

@@ -96,9 +96,9 @@ class MembersController extends Controller
 
         $allEmails = array(
 
-          //  array("email"=>"ofureokoose@gmail.com", "first_name"=>"Faithfulness"),
+            array("email"=>"ofureokoose@gmail.com", "first_name"=>"Faithfulness"),
 
-           // array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
+            array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
            array("email"=>"ebubeemeka19@gmail.com", "first_name"=>"Ebube", "ticket"=>"https://zenithstake.com/images/tickets/kayode-samson-ticket.jpeg"),
    
             
