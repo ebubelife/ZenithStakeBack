@@ -96,9 +96,11 @@ class MembersController extends Controller
 
         $allEmails = array(
 
-            array("email"=>"ofureokoose@gmail.com", "first_name"=>"Faithfulness"),
+          //  array("email"=>"ofureokoose@gmail.com", "first_name"=>"Faithfulness"),
 
-            array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
+           // array("email"=>"ochiemebhoyaemmanuel@gmail.com", "first_name"=>"Emmanuel Ochie"),
+           array("email"=>"ebubeemeka19@gmail.com", "first_name"=>"Ebube", "ticket"=>"https://zenithstake.com/images/tickets/kayode-samson-ticket.jpeg"),
+   
             
           // array("email"=>"treasureenwerem@gmail.com", "first_name"=>"Treasure", "ticket"=>"https://zenithstake.com/images/tickets/treasure_ticket.jpeg"),
         /*   array("email"=>"holuwasayofunmiprecious@gmail.com", "first_name"=>"Precious", "ticket"=>"https://zenithstake.com/images/precious-ogunleye-ticket.jpeg"),
