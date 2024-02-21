@@ -839,6 +839,8 @@ public function checkPhoneExists($phone)
             'total_aff_sales' => 'string',
             'unpaid_balance' => 'string',
             'email' => 'string',
+            'firstName' => 'string',
+            'lastName' => 'string',
            
             
         ]);
@@ -851,6 +853,8 @@ public function checkPhoneExists($phone)
             $user->total_aff_sales_cash = $request->total_aff_sales_cash;
             $user->total_aff_sales = $request->total_aff_sales;
             $user->unpaid_balance = $request->unpaid_balance;
+            $user->firstName = $request->firstName;
+            $user->lastName = $request->lastName;
             $user->email = $request->email;
 
             $user->save();
