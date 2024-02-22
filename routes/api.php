@@ -549,6 +549,7 @@ Route::controller(ProductsController::class)->group(function(){
   
     Route::post('products/add','store');
     Route::get('products/view/{count}','show');
+    Route::get('approved_products/view/{count}','show_approved');
    // Route::middleware('auth:sanctum')-> post('set_transaction_pin','set_transaction_pin');
    
    // Route::get('test_api','test_api');

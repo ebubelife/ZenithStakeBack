@@ -175,6 +175,66 @@ else{
 
     }
 
+
+
+    public function show_approved($count)
+    {
+      // Use the all() method to retrieve all products from the database
+
+    if($count){
+    $products = Products::take($count)->where("approved", true)->get();
+
+    for($i=0; $i < count($products); $i++){
+        $vendor_data1 = Members::find($products[$i]->vendor_id);
+       // $vendor_data2 = Vendors::find($products[$i]->vendor_id);
+        $vendor_data2 = Vendors::where('vendor_id', $products[$i]->vendor_id)->first();
+
+        $products[$i]["vendor_data1"] = response()->json($vendor_data1);
+        $products[$i]["vendor_data2"] = response()->json($vendor_data2);
+
+        $products[$i]["image_path"] = asset('https://back.zenithstake.com/storage/images/product_images/' . $products[$i]["image"]);
+ 
+
+
+        
+
+    }
+
+    // Return a JSON response containing the retrieved products
+    return response()->json($products);
+
+}
+
+else{
+
+    $products = Products::take($count)->where("approved", true)->get();
+
+    for($i=0; $i < count($products); $i++){
+        $vendor_data1 = Members::find($products[$i]->vendor_id);
+       // $vendor_data2 = Vendors::find($products[$i]->vendor_id);
+        $vendor_data2 = Vendors::where('vendor_id', $products[$i]->vendor_id)->first();
+
+        $products[$i]["vendor_data1"] = response()->json($vendor_data1);
+        $products[$i]["vendor_data2"] = response()->json($vendor_data2);
+
+        $products[$i]["image_path"] = asset('https://back.zenithstake.com/storage/images/product_images/' . $products[$i]["image"]);
+ 
+
+
+        
+
+    }
+
+    // Return a JSON response containing the retrieved products
+    return response()->json($products);
+
+
+}
+
+
+
+    }
+
     
 
     /**
