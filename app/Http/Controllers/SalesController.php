@@ -415,8 +415,8 @@ class SalesController extends Controller
   
           if($validated["selected_product"] == 'all'){
               $sales_by_user = Sales::where('vendor_id', $validated["vendor_id"])
-              ->where('created_at', '>=', Carbon::parse($from)->startOfDay())
-              ->where('created_at', '<=', Carbon::parse($to)->endOfDay() )
+              ->where('created_at', '>=', Carbon::parse($from)->startOfDay()->addDay())
+              ->where('created_at', '<=', Carbon::parse($to)->endOfDay()->addDay() )
               ->get();
   
           }else{
