@@ -355,7 +355,7 @@ class SalesController extends Controller
           //  ->where('created_at', '>=', Carbon::parse($from))
          //   ->where('created_at', '<=', Carbon::parse($to))
 
-            ->whereBetween('created_at', [Carbon::parse($from)->startOfDay(), Carbon::parse($to)->endOfDay() ])
+            ->whereBetween('created_at', [Carbon::parse($from)->startOfDay()->addDay(), Carbon::parse($to)->endOfDay()->addDay() ])
       
             ->get();
 
@@ -364,7 +364,7 @@ class SalesController extends Controller
             $sales_by_user = Sales::where('affiliate_id', $validated["affiliate_id"])
          //   ->where('created_at', '>=', Carbon::parse($from))
          //  ->whereBetween('created_at', [Carbon::parse($from), Carbon::parse($to)])
-         ->whereBetween('created_at', [Carbon::parse($from)->startOfDay(), Carbon::parse($to)->endOfDay() ])
+         ->whereBetween('created_at', [Carbon::parse($from)->startOfDay()->addDay(), Carbon::parse($to)->endOfDay()->addDay() ])
       
             ->where('created_at', '<=', Carbon::parse($to))
             ->where('product_id', $validated["selected_product"])
@@ -460,8 +460,8 @@ class SalesController extends Controller
                   ->selectRaw('sales.affiliate_id, COUNT(*) as count, members.*')
                   ->join('members', 'members.affiliate_id', '=', 'sales.affiliate_id')
                   ->groupBy('sales.affiliate_id', 'members.id', 'members.affiliate_id')
-                  ->where('sales.created_at', '>=', Carbon::parse($from)->startOfDay())
-                  ->where('sales.created_at', '<=', Carbon::parse($to)->endOfDay())
+                  ->where('sales.created_at', '>=', Carbon::parse($from)->startOfDay()->addDay())
+                  ->where('sales.created_at', '<=', Carbon::parse($to)->endOfDay()->addDay())
                   ->limit(1000);
       
               if ($validated["selected_product"] !== 'all') {
