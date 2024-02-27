@@ -532,7 +532,7 @@ class SalesController extends Controller
 
    $res = json_decode($result, true);
 
-   return response()->json(["message" => $result]);
+   return $result ;
 
 
 
