@@ -542,7 +542,7 @@ $decoded_result = json_decode($firstResultBatch, true);
             
          
     curl_setopt_array($curl, [
-        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=success&from=2024-02-27&to=2024-02-27&page='.strval($i),
+        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-02-27&to=2024-02-27&page='.strval($i),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST => 'GET',
        
