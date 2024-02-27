@@ -514,7 +514,7 @@ class SalesController extends Controller
 
         $from = "2024-02-27";
         $to = "2024-02-27";
-        
+
         $total_sales = array();
 
         $curl = curl_init();
@@ -584,18 +584,11 @@ $decoded_result = json_decode($firstResultBatch, true);
         ->where('created_at', '<=', Carbon::parse($to)->endOfDay())
         ->pluck('customer_email');
 
-        for($s =0; $s < count($total_sales); $s++){
-
-            if (!in_array($total_sales[$i]["customer"]["email"], $sales_within_period)) {
-
-                $count_of_absent_emails++;
-               
-            }
-        }
+        
 
 
 
-        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$count_of_absent_emails]);
+        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$sales_within_period]);
 
 
 
