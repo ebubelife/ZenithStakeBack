@@ -536,7 +536,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
 
 
-for ($i = 0; $i < 4; $i++) {
+for ($i = 1; $i < 2; $i++) {
     // Initialize cURL session
     $curl = curl_init();
 
