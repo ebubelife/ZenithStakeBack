@@ -562,6 +562,12 @@ $decoded_result = json_decode($firstResultBatch, true);
               //add newly retrived sales from other pages to array
         array_push($total_sales, $decoded_res["data"]);
 
+        foreach($decoded_res["data"] as $v){
+
+
+            array_push($total_sales, $v);
+        }
+
         }
      
 
