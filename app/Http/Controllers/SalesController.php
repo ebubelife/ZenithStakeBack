@@ -512,11 +512,13 @@ class SalesController extends Controller
     {
         //
 
+        $total_sales = array();
+
         $curl = curl_init();
             
          
         curl_setopt_array($curl, [
-            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?from=2024-02-27&to=2024-02-27&page=4',
+            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?from=2024-02-27&to=2024-02-27&page=1',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
            
@@ -527,10 +529,40 @@ class SalesController extends Controller
         ]);
     
     //execute post
-    $result = curl_exec($curl);
+    $firstResultBatch = curl_exec($curl);
    // echo $result;
 
-   $res = json_decode($result, true);
+$decoded_result = json_decode($firstResultBatch, true);
+
+//add newly retrived sales from other pages to array
+array_push($total_sales, $decoded_result["data"]);
+
+   for($i=1; $i < intval($res["meta"]["page_info"]["total_pages"]); $i++ ){
+
+    $curl = curl_init();
+            
+         
+    curl_setopt_array($curl, [
+        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?from=2024-02-27&to=2024-02-27&page='.strval($i),
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_CUSTOMREQUEST => 'GET',
+       
+        CURLOPT_HTTPHEADER => [
+            'Authorization: Bearer '.env('FLW_API_KEY'),
+            'Content-Type: application/json',
+        ],
+    ]);
+
+//execute post
+$resultBatch = curl_exec($curl);
+
+$decoded_res = json_decode($resultBatch, true);
+
+//add newly retrived sales from other pages to array
+array_push($total_sales, $decoded_res["data"]);
+
+    
+   }
 
    return response()->json(["count_of_sales_curr_page" => count($res["data"]), "total_pages"=> $res["meta"]["page_info"]["total_pages"]]);
 
