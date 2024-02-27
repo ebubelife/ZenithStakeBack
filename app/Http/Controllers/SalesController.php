@@ -536,7 +536,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
 
 
-for ($i = 0; $i < intval($decoded_result["meta"]["page_info"]["total_pages"]); $i++) {
+for ($i = 0; $i < 4; $i++) {
     // Initialize cURL session
     $curl = curl_init();
 
@@ -570,7 +570,7 @@ for ($i = 0; $i < intval($decoded_result["meta"]["page_info"]["total_pages"]); $
     curl_close($curl);
 
     // Sleep for 1 second
-    sleep(1);
+    //sleep(1);
 }
 
     }}
