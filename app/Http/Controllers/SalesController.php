@@ -532,7 +532,7 @@ class SalesController extends Controller
 
    $res = json_decode($result, true);
 
-   return response()->json(["message" => count($res["data"])]);
+   return response()->json(["count_of_sales_curr_page" => count($res["data"]), "total_pages"=> $res["meta"]["page_info"]["total_pages"]]);
 
 
 
