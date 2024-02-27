@@ -582,7 +582,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
         $sales_within_period = Sales::where('created_at', '>=', Carbon::parse($from)->startOfDay())
         ->where('created_at', '<=', Carbon::parse($to)->endOfDay())
-        ->pluck('customer_email');
+        ->pluck('customer_email')->toArray();;
 
         if(count($sales_within_period) > 0){
 
