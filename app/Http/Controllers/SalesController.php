@@ -534,10 +534,9 @@ class SalesController extends Controller
 
 $decoded_result = json_decode($firstResultBatch, true);
 
-//add newly retrived sales from other pages to array
-array_push($total_sales, $decoded_result["data"]);
 
-   for($i=1; $i < intval($decoded_result["meta"]["page_info"]["total_pages"]); $i++ ){
+
+   for($i=0; $i < intval($decoded_result["meta"]["page_info"]["total_pages"]); $i++ ){
 
     $curl = curl_init();
             
