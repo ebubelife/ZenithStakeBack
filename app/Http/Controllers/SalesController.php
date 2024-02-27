@@ -574,6 +574,17 @@ $decoded_result = json_decode($firstResultBatch, true);
             
         }
 
+        $from = "2024-02-27";
+        $to = "2024-02-27";
+
+
+        $sales_by_user = Sales::where('vendor_id', $validated["vendor_id"])
+        ->where('created_at', '>=', Carbon::parse($from)->startOfDay()->addDay())
+        ->where('created_at', '<=', Carbon::parse($to)->endOfDay()->addDay() )
+        ->get();
+
+
+
         return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales]);
 
 
