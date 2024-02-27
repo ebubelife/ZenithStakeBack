@@ -536,44 +536,41 @@ $decoded_result = json_decode($firstResultBatch, true);
 
 
 
-   for($i=0; $i < intval($decoded_result["meta"]["page_info"]["total_pages"]); $i++ ){
-
+for ($i = 0; $i < intval($decoded_result["meta"]["page_info"]["total_pages"]); $i++) {
+    // Initialize cURL session
     $curl = curl_init();
-            
-         
+
+    // Set cURL options
     curl_setopt_array($curl, [
-        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?from=2024-02-27&to=2024-02-27&page='.strval($i),
+        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?from=2024-02-27&to=2024-02-27&page=' . strval($i),
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST => 'GET',
-       
         CURLOPT_HTTPHEADER => [
-            'Authorization: Bearer '.env('FLW_API_KEY'),
+            'Authorization: Bearer ' . env('FLW_API_KEY'),
             'Content-Type: application/json',
         ],
     ]);
 
-        //execute post
-        $resultBatch = curl_exec($curl);
+    // Execute cURL request
+    $resultBatch = curl_exec($curl);
 
-        $decoded_res = json_decode($resultBatch, true);
+    // Decode JSON response
+    $decoded_res = json_decode($resultBatch, true);
 
-        if($decoded_res["status"] == "success"){
-
-              //add newly retrived sales from other pages to array
+    // Check if request was successful
+    if ($decoded_res["status"] == "success") {
+        // Add newly retrieved sales from other pages to array
         array_push($total_sales, $decoded_res["data"]);
-
-        }
-      else{
-
-        return response()->json(["error" => "An error occured"]);
-      }
-
-            
-        }
-
-        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales]);
-
-
-
+    } else {
+        // Handle error
+        return response()->json(["error" => "An error occurred"]);
     }
+
+    // Close cURL session
+    curl_close($curl);
+
+    // Sleep for 1 second
+    sleep(1);
 }
+
+    }}
