@@ -528,11 +528,9 @@ class SalesController extends Controller
     
     //execute post
     $result = curl_exec($curl);
-   // echo $result;
+  
 
-   $res = json_decode($result, true);
-
-   return $result ;
+   return response()->json(["message" => $result, "count"=> count($result["data"])]);
 
 
 
