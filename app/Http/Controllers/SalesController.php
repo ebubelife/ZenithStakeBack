@@ -506,8 +506,35 @@ class SalesController extends Controller
      * @param  \App\Models\Sales  $sales
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Sales $sales)
+
+     //This method below consolidates sales between flutterwave and sales record
+    public function consolidateSales()
     {
         //
+
+        $curl = curl_init();
+            
+         
+        curl_setopt_array($curl, [
+            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?from=2024-02-27&to=2024-02-27&page=4',
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_CUSTOMREQUEST => 'GET',
+           
+            CURLOPT_HTTPHEADER => [
+                'Authorization: Bearer '.env('FLW_API_KEY'),
+                'Content-Type: application/json',
+            ],
+        ]);
+    
+    //execute post
+    $result = curl_exec($curl);
+   // echo $result;
+
+   $res = json_decode($result, true);
+
+   return response()->json(["message" => $result]);
+
+
+
     }
 }
