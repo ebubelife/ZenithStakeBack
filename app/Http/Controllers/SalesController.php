@@ -577,16 +577,24 @@ $decoded_result = json_decode($firstResultBatch, true);
         }
 
        
+        $count_of_absent_emails = 0;
+
+        $sales_within_period = Sales::where('created_at', '>=', Carbon::parse($from)->startOfDay()->addDay())
+        ->where('created_at', '<=', Carbon::parse($to)->endOfDay()->addDay())
+        ->pluck('customer_email');
+
+        for($s =0; $s < count($total_sales); $s++){
+
+            if (!in_array($total_sales[$i]["customer"]["email"], $sales_within_period)) {
+
+                $count_of_absent_emails++;
+               
+            }
+        }
 
 
-        $sales_by_user = Sales::where('vendor_id', $validated["vendor_id"])
-        ->where('created_at', '>=', Carbon::parse($from)->startOfDay()->addDay())
-        ->where('created_at', '<=', Carbon::parse($to)->endOfDay()->addDay() )
-        ->get();
 
-
-
-        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales]);
+        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$count_of_absent_emails]);
 
 
 
