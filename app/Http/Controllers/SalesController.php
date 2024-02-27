@@ -560,7 +560,7 @@ $decoded_result = json_decode($firstResultBatch, true);
         if($decoded_res["status"] == "success" && $decoded_res["data"] != null ){
 
               //add newly retrived sales from other pages to array
-        array_push($total_sales, $decoded_res["data"]);
+       // array_push($total_sales, $decoded_res["data"]);
 
         foreach($decoded_res["data"] as $v){
 
