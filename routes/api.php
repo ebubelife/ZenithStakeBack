@@ -648,6 +648,8 @@ Route::controller(BanksController::class)->group(function(){
 });
 
 Route::controller(SalesController::class)->group(function(){
+
+    Route::post('sales/consolidate','consolidateSales');
   
     Route::post('sales/test_email','testemail');
     Route::post('sales/add','store');
@@ -786,6 +788,10 @@ Route::controller(SalesController::class)->group(function(){
     Route::post('view/sales/vendor','show_vendor_sales_from_date');
 
     Route::post('view/sales/vendor/as_affiliates','show_vendor_sales_from_date_as_affiliates');
+
+  
+
+    
 
 
     Route::get('view/user_sales_count/{id}', function ($id) {
