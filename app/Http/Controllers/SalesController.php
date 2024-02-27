@@ -512,6 +512,8 @@ class SalesController extends Controller
     {
         //
 
+        $from = "2024-02-27";
+        $to = "2024-02-27";
         $total_sales = array();
 
         $curl = curl_init();
@@ -574,8 +576,7 @@ $decoded_result = json_decode($firstResultBatch, true);
             
         }
 
-        $from = "2024-02-27";
-        $to = "2024-02-27";
+       
 
 
         $sales_by_user = Sales::where('vendor_id', $validated["vendor_id"])
