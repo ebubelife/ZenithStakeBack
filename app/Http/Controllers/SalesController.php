@@ -552,18 +552,18 @@ $decoded_result = json_decode($firstResultBatch, true);
         ],
     ]);
 
-//execute post
-$resultBatch = curl_exec($curl);
+        //execute post
+        $resultBatch = curl_exec($curl);
 
-$decoded_res = json_decode($resultBatch, true);
+        $decoded_res = json_decode($resultBatch, true);
 
-//add newly retrived sales from other pages to array
-array_push($total_sales, $decoded_res["data"]);
+        //add newly retrived sales from other pages to array
+        array_push($total_sales, $decoded_res["data"]);
 
-    
-   }
+            
+        }
 
-   return response()->json(["count_of_sales" => count($total_sales),]);
+        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales]);
 
 
 
