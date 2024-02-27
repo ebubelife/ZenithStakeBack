@@ -563,10 +563,7 @@ $decoded_result = json_decode($firstResultBatch, true);
         array_push($total_sales, $decoded_res["data"]);
 
         }
-      else{
-
-        return response()->json(["error" => "An error occured"]);
-      }
+     
 
             
         }
