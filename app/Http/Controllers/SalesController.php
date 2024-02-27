@@ -564,7 +564,7 @@ array_push($total_sales, $decoded_res["data"]);
     
    }
 
-   return response()->json(["count_of_sales_curr_page" => count($res["data"]), "total_pages"=> $res["meta"]["page_info"]["total_pages"]]);
+   return response()->json(["count_of_sales" => count($total_sales),]);
 
 
 
