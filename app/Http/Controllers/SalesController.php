@@ -512,8 +512,8 @@ class SalesController extends Controller
     {
         //
 
-        $from = "2024-02-27";
-        $to = "2024-02-27";
+        $from = "2024-02-28";
+        $to = "2024-02-29";
 
         $total_sales = array();
 
