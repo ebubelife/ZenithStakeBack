@@ -521,7 +521,7 @@ class SalesController extends Controller
             
          
         curl_setopt_array($curl, [
-            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-02-28&to=2024-02-29&page=1',
+            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-02&to=2024-03-03&page=1',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
            
