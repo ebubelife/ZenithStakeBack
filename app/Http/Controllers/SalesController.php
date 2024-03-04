@@ -580,9 +580,18 @@ $decoded_result = json_decode($firstResultBatch, true);
        
         $count_of_absent_emails = 0;
 
+        $emails_of_sales = array();
+
         $sales_within_period = Sales::where('created_at', '>=', Carbon::parse($from)->startOfDay())
         ->where('created_at', '<=', Carbon::parse($to)->endOfDay())
         ->pluck('customer_email')->toArray();;
+
+        foreach($sales_within_period as $d){
+
+            array_push($d, $emails_of_sales);
+
+
+        }
 
        
 
@@ -613,7 +622,7 @@ else{
 
 
 
-        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$count_of_absent_emails,"emails"=>$sales_within_period ]);
+        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$count_of_absent_emails,"emails"=>$emails_of_sales ]);
 
 
 
