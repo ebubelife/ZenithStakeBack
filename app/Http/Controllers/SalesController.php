@@ -585,7 +585,7 @@ $decoded_result = json_decode($firstResultBatch, true);
         ->pluck('customer_email')->toArray();;
 
         if (is_array( $sales_within_period)) {
-            $count_of_absent_emails++;
+            $count_of_absent_emails  ="isArray";
          }
 
         if(count($sales_within_period) > 0){
