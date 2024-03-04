@@ -608,7 +608,7 @@ $decoded_result = json_decode($firstResultBatch, true);
                    
                 }else{
                    
-                    $count_of_absent_emails + 1;
+                    $count_of_absent_emails = 2;
                 }
             }
 
