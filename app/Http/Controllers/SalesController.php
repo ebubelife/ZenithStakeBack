@@ -589,6 +589,7 @@ $decoded_result = json_decode($firstResultBatch, true);
             for($s =0; $s < count($total_sales); $s++){
 
                 if (in_array($total_sales[$s]["customer"]["email"], $sales_within_period)) {
+                    $count_of_absent_emails++;
     
                    
                    
