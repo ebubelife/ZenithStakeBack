@@ -588,7 +588,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
         foreach($sales_within_period as $d){
 
-            array_push($d, $emails_of_sales);
+            array_push( $emails_of_sales, $d);
 
 
         }
