@@ -584,21 +584,21 @@ $decoded_result = json_decode($firstResultBatch, true);
         ->where('created_at', '<=', Carbon::parse($to)->endOfDay())
         ->pluck('customer_email')->toArray();;
 
-        if (is_array( $sales_within_period)) {
-            $count_of_absent_emails  ="isArray";
-         }
+       
 
         if(count($sales_within_period) > 0){
 
             for($s =0; $s < count($total_sales); $s++){
 
                 if (in_array("chidubemchukwuka123@gmail.com", $sales_within_period)) {
+
+                    return response()->json("found in array");
                    
     
                    
                    
                 }else{
-                   
+                    return response()->json("not found in array");
                     
                 }
             }
