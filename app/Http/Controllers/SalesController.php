@@ -584,7 +584,7 @@ $decoded_result = json_decode($firstResultBatch, true);
         ->where('created_at', '<=', Carbon::parse($to)->endOfDay())
         ->pluck('customer_email')->toArray();;
 
-        if (is_array("chidubemchukwuka123@gmail.com", $sales_within_period)) {
+        if (is_array( $sales_within_period)) {
             $count_of_absent_emails++;
          }
 
@@ -592,7 +592,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
             for($s =0; $s < count($total_sales); $s++){
 
-                if (in_array($sales_within_period)) {
+                if (in_array("chidubemchukwuka123@gmail.com", $sales_within_period)) {
                    
     
                    
