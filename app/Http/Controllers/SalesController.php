@@ -602,7 +602,7 @@ $decoded_result = json_decode($firstResultBatch, true);
                 if (in_array("eelempiree@gmail.com", $emails_of_sales)) {
 
                   
-                   
+                    $count_of_absent_emails="in array";
     
                    
                    
