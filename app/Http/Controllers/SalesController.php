@@ -601,13 +601,13 @@ $decoded_result = json_decode($firstResultBatch, true);
 
                 if (in_array("chidubemchukwuka123@gmail.com", $emails_of_sales)) {
 
-                  ///  return response()->json("found in array");
+                    return response()->json("found in array");
                    
     
                    
                    
                 }else{
-                  //  return response()->json("not found in array");
+                    return response()->json("not found in array");
                     
                 }
             }
