@@ -599,16 +599,13 @@ $decoded_result = json_decode($firstResultBatch, true);
 
             for($s =0; $s < count($total_sales); $s++){
 
-                if (in_array("eelempiree@gmail.com", $emails_of_sales)) {
+                if (!in_array($total_sales[$s]["customer"]["email"], $emails_of_sales)) {
 
                   
-                    $count_of_absent_emails="in array";
+                    $count_of_absent_emails = $count_of_absent_emails + 1;
     
                    
                    
-                }else{
-                   
-                    $count_of_absent_emails = $count_of_absent_emails + 1;
                 }
             }
 
