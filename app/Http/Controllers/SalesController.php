@@ -592,7 +592,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
             for($s =0; $s < count($total_sales); $s++){
 
-                if (in_array("chidubemchukwuka123@gmail.com", $sales_within_period)) {
+                if (in_array($sales_within_period)) {
                    
     
                    
