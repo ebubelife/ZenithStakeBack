@@ -599,7 +599,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
             for($s =0; $s < count($total_sales); $s++){
 
-                if (in_array("chidubemchukwuka123@gmail.com", $emails_of_sales)) {
+                if (in_array("eelempiree@gmail.com", $emails_of_sales)) {
 
                   
                    
