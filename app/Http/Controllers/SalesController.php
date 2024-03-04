@@ -604,7 +604,11 @@ $decoded_result = json_decode($firstResultBatch, true);
             }
 
         }
+else{
+    return response()->json("zero sales for this period");
 
+
+}
         
 
 
