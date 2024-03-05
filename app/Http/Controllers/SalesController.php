@@ -512,8 +512,8 @@ class SalesController extends Controller
     {
         //
 
-        $from = "2024-03-02";
-        $to = "2024-03-04";
+        $from = "2024-03-04";
+        $to = "2024-03-05";
 
         $total_sales = array();
 
@@ -521,7 +521,7 @@ class SalesController extends Controller
             
          
         curl_setopt_array($curl, [
-            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-02&to=2024-03-04&page=1',
+            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-04&to=2024-03-05&page=1',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
            
@@ -545,7 +545,7 @@ $decoded_result = json_decode($firstResultBatch, true);
             
          
     curl_setopt_array($curl, [
-        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-02&to=2024-03-04&page='.$i,
+        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-04&to=2024-03-05&page='.$i,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST => 'GET',
        
@@ -623,7 +623,7 @@ else{
 
 
 
-        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$count_of_absent_emails,"missing emails"=>$missing_emails ]);
+        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$count_of_absent_emails,"missing emails"=>$missing_emails,  ]);
 
 
 
