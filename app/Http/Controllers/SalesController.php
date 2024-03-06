@@ -602,7 +602,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
             for($s =0; $s < count($total_sales); $s++){
 
-                if ((!in_array($total_sales[$s]["customer"]["email"], $emails_of_sales )) && !in_array(ucfirst($total_sales[$s]["customer"]["email"]), $emails_of_sales)) {
+                if (!in_array($total_sales[$s]["meta"]["email"], $emails_of_sales )) {
 
                   
                     $count_of_absent_emails = $count_of_absent_emails + 1;
@@ -610,7 +610,7 @@ $decoded_result = json_decode($firstResultBatch, true);
                     //save consolidated sale and create the sale in database
                    // $this->save_consolidated_sales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"],$total_sales[$s]["meta"]["email"],$total_sales[$s]["meta"]["phone_number"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
 
-                    array_push($missing_emails,$total_sales[$s]["customer"]["email"] );
+                    array_push($missing_emails,$total_sales[$s]["meta"]["email"] );
     
                    
                    
