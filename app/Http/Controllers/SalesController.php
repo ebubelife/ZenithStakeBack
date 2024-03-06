@@ -600,6 +600,9 @@ $decoded_result = json_decode($firstResultBatch, true);
                   
                     $count_of_absent_emails = $count_of_absent_emails + 1;
 
+                    //save consolidated sale and create the sale in database
+                    saveConsolidatedSales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
+
                     array_push($missing_emails,$total_sales[$s]["customer"]["email"] );
     
                    
