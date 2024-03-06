@@ -512,8 +512,8 @@ class SalesController extends Controller
     {
         //
 
-        $from = "2024-03-05";
-        $to = "2024-03-05";
+        $from = "2024-03-06";
+        $to = "2024-03-06";
 
         $total_sales = array();
 
@@ -521,7 +521,7 @@ class SalesController extends Controller
             
          
         curl_setopt_array($curl, [
-            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-05&to=2024-03-05&page=1',
+            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-06&to=2024-03-06&page=1',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
            
@@ -545,7 +545,7 @@ $decoded_result = json_decode($firstResultBatch, true);
             
          
     curl_setopt_array($curl, [
-        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-05&to=2024-03-05&page='.$i,
+        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-06&to=2024-03-06&page='.$i,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST => 'GET',
        
@@ -567,7 +567,7 @@ $decoded_result = json_decode($firstResultBatch, true);
 
         foreach($decoded_res["data"] as $v){
 
-
+            //save only successful transactions 
             array_push($total_sales, $v);
         }
 
@@ -580,7 +580,7 @@ $decoded_result = json_decode($firstResultBatch, true);
        
         $count_of_absent_emails = 0;
 
-        $emails_of_sales = array();
+       // $emails_of_sales = array();
 
         $missing_emails = array();
 
@@ -588,13 +588,7 @@ $decoded_result = json_decode($firstResultBatch, true);
         ->where('created_at', '<=', Carbon::parse($to)->endOfDay())
         ->pluck('customer_email')->toArray();;
 
-        foreach($sales_within_period as $d){
-
-            array_push( $emails_of_sales, $d);
-
-
-        }
-
+       
        
 
         if(count($sales_within_period) > 0){
@@ -625,4 +619,225 @@ else{
 
 
     }
+
+
+
+    public function saveConsolidatedSales($affiliate_id, $product_id, $product_price, $commission, $customer_name, $customer_email,$customer_phone, $vendor_id, $tx_id, $currency)
+    {
+
+        $naira_exchange_rate = DB::selectOne('SELECT value FROM settings WHERE settings_key = ? LIMIT 1', ['usd_to_naira']);
+
+        $ghs_exchange_rate = DB::selectOne('SELECT value FROM settings WHERE settings_key = ? LIMIT 1', ['usd_to_ghs']);
+    
+        //
+
+       // DB::beginTransaction();
+
+
+        try{
+
+
+         
+
+             $sale = new Sales();
+
+             
+
+            
+             $sale->affiliate_id =  $affiliate_id;
+             $sale->product_id =  $product_id;
+             $sale->product_price =  $product_price;
+             $sale->commission =  $commission;
+        
+             $sale->customer_name =  $customer_name;
+             $sale->customer_email =  $customer_email;
+             $sale->customer_phone =  $customer_phone;
+             $sale->vendor_id =  $vendor_id;
+
+            
+
+           /// $characters = '0123456789abcdefghijklmnopqrstuvwxyz' ;
+            //$random_string = substr(str_shuffle($characters), 0, 8);
+            $sale->tx_id = $tx_id;
+
+            $product = Products::where('id',$product_id)->first();
+
+            $productName = $product->productName;
+           
+
+            //calculate total affiliate commission and save
+
+
+            $affiliate = Members::where('affiliate_id', $affiliate_id)->first();
+
+            $commission_int = intval($commission);
+
+
+            $price_int = $currency=="USD"?(intval($product_price) * (intval($naira_exchange_rate->value))):(intval($product_price));
+
+        
+
+
+
+            $total_aff_sales = intval($affiliate->total_aff_sales_cash);
+            $total_aff_sales_num = intval($affiliate->total_aff_sales);
+
+            $affiliate->total_aff_sales_cash = strval((($commission_int/100) * $price_int)  + $total_aff_sales);
+            $affiliate->total_aff_sales = strval($total_aff_sales_num + 1);
+
+            $unpaid_balance_affiliate = intval($affiliate->unpaid_balance);
+
+            $affiliate->unpaid_balance = strval($unpaid_balance_affiliate + (($commission_int/100) * $price_int));
+
+            $timestamp = time(); // Get the current Unix timestamp
+            $timestamp_format = date('Y-m-d H:i:s', $timestamp); // Convert to the timestamp format
+
+            $affiliate->last_sale_time = $timestamp_format ;
+            $affiliate->last_sale_amount = strval((($commission_int/100) * $price_int)) ;
+            $affiliate->last_sale_product = $product_id;
+
+
+
+           
+
+
+            //calculate vendor commision an save
+
+
+            $user = Members::where('id', $vendor_id)->first();
+
+            $commission_int = intval($commission);
+            $price_int = intval($product_price);
+
+            $aff_commision = (($commission_int/100) * $price_int);
+            $zenithstake_commision = ((10/100) * $price_int);
+
+            $vendor_comission = ($price_int - $aff_commision) - $zenithstake_commision;
+
+            $total_vendor_sales = intval($user->total_vendor_sales_cash);
+            $total_vendor_sales_num = intval($user->total_vendor_sales);
+
+            $unpaid_balance_vendor = intval($user->unpaid_balance_vendor);
+
+            $user->total_vendor_sales_cash = strval($vendor_comission + $total_vendor_sales);
+            $user->total_vendor_sales = strval($total_vendor_sales_num + 1);
+
+            $user->unpaid_balance_vendor = strval($unpaid_balance_vendor + ($vendor_comission ));
+
+            //check if sale already exists with same customer email
+            $check_c_email_record = Sales::where('customer_email', $customer_email)
+            ->where('affiliate_id', $affiliate_id) // Adding condition for affiliate_id
+            ->where('product_id', "1")
+            ->first();
+        
+
+            if(!$check_c_email_record){
+
+                if( $sale->save()){
+
+
+                    $new_notif = new Notification();
+    
+    
+                    $new_notif->type = "NEW_SALE";
+    
+                    $new_notif->header = "New Sale!";
+                    $new_notif->body = "congratulations! You have made a new sale for the product - ".$productName;
+    
+                    $new_notif->save();
+    
+                //Save affiliate commission
+    
+              if( $affiliate->save()){
+                if($product_id == "1"){
+    
+                   
+                    Mail::to($customer_email)->send(new FinishReg($customer_name,$sale->id));
+                  
+                }
+    
+                else{
+    
+                 
+    
+                    Mail::to($customer_email)->send(new CourseAccess($customer_name, $product->ProductTYLink, $productName ));
+                   
+    
+                }
+    
+              
+                    //Save vendor commission
+               if( $user->save()){
+    
+                    $getAffiliate = Members::where('affiliate_id', $affiliate_id)->first();
+                    $getVendor = Members::where('id', $vendor_id)->first();
+    
+                    
+       
+                      
+            
+                  
+                    //send email to affiliate
+    
+                    Mail::to($getAffiliate->email )->send(new AffiliateEmail( $getAffiliate->email, $getAffiliate->firstName, $product_price/$naira_exchange_rate->value,$aff_commision/$naira_exchange_rate->value, $customer_name, $productName));
+    
+                    Mail::to($getVendor->email )->send(new VendorEmail($getVendor->email,$getVendor->firstName,$product_price,$vendor_comission/$naira_exchange_rate->value,$customer_name,$productName));
+    
+                  /*  if(Mail::to($getAffiliate->email )->send(new AffiliateEmail( $getAffiliate->email, $getAffiliate->firstName, $validated["product_price"],strval($aff_commision ), $validated["customer_name"], $productName))){
+    
+                    
+    
+                        //send email to vendor
+    
+                                if(Mail::to("ebubeemeka19@gmail.com")->send(new VendorEmail( "ebubeemeka19@gmail.com",$getVendor->firstName,$validated["product_price"],strval($vendor_comission),$validated["customer_name"],$productName))){
+    
+                                    return response()->json(['message'=>'Successful' ],200);
+    
+                                }
+                                else{
+    
+                                    return response()->json(['message'=>'Successful. Could not send email notification - 1'],200);
+                                }
+    
+                }else{
+                    return response()->json(['message'=>'Successful!.Could not send email notification - 2'],200);
+                }*/
+    
+                return response()->json(['message'=>'Successful!'],200);
+    
+               
+    
+               }else{
+                return response()->json(['message'=>'Could not verify the vendor. Please contact Zenithstake admin'],405);
+               }
+            }
+            else{
+                return response()->json(['message'=>'Could not verify the affiliate. Please contact the ZenithStake admin'],405);
+            }
+    
+        }else{
+            return response()->json(['message'=>'Could not save this transaction. Please contact the ZenithStake admin'],405);
+    
+        }
+
+                
+            }else{
+
+                return response()->json(['message'=>'Sorry! Your email has been previously employed on a sale. Please contact admin'],405);
+
+            }
+
+            
+
+       // DB::commit();
+    }
+    catch (\Illuminate\Validation\ValidationException $exception) {
+        $errors = $exception->errors();
+    
+        return response()->json(['message' => 'Validation error', 'errors' => $errors], 422);
+      } catch (\Exception $e) {
+        return response()->json(['message' => 'An error occurred, please try again', 'error' => $e->getMessage()], 405);
+      }
+    }
+
 }
