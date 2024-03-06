@@ -617,7 +617,7 @@ else{
 
 }
     
-        return response()->json(["count_of_sales" => count($total_sales), "sales"=>$total_sales, "count_of_absent_emails"=>$count_of_absent_emails,"missing emails"=>$missing_emails,  ]);
+        return response()->json(["sales"=>$sales_within_period ]);
 
 
 
