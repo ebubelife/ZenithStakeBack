@@ -601,7 +601,7 @@ $decoded_result = json_decode($firstResultBatch, true);
                     $count_of_absent_emails = $count_of_absent_emails + 1;
 
                     //save consolidated sale and create the sale in database
-                    $this->saveConsolidatedSales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
+                    $this->save_consolidated_sales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
 
                     array_push($missing_emails,$total_sales[$s]["customer"]["email"] );
     
@@ -625,7 +625,7 @@ else{
 
 
 
-    public function saveConsolidatedSales($affiliate_id, $product_id, $product_price, $commission, $customer_name, $customer_email,$customer_phone, $vendor_id, $tx_id, $currency)
+    public function save_consolidated_sales($affiliate_id, $product_id, $product_price, $commission, $customer_name, $customer_email,$customer_phone, $vendor_id, $tx_id, $currency)
     {
 
         $naira_exchange_rate = DB::selectOne('SELECT value FROM settings WHERE settings_key = ? LIMIT 1', ['usd_to_naira']);
