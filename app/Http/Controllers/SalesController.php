@@ -512,8 +512,8 @@ class SalesController extends Controller
     {
         //
 
-        $from = "2024-03-06";
-        $to = "2024-03-10";
+        $from = "2024-03-10";
+        $to = "2024-03-13";
 
         $total_sales = array();
 
@@ -521,7 +521,7 @@ class SalesController extends Controller
             
          
         curl_setopt_array($curl, [
-            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-06&to=2024-03-10&page=1',
+            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-10&to=2024-03-13&page=1',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
            
@@ -545,7 +545,7 @@ $decoded_result = json_decode($firstResultBatch, true);
             
          
     curl_setopt_array($curl, [
-        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-06&to=2024-03-10&page='.$i,
+        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-10&to=2024-03-13&page='.$i,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST => 'GET',
        
@@ -608,7 +608,7 @@ $decoded_result = json_decode($firstResultBatch, true);
                     $count_of_absent_emails = $count_of_absent_emails + 1;
 
                     //save consolidated sale and create the sale in database
-                    $this->save_consolidated_sales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"],$total_sales[$s]["meta"]["email"],$total_sales[$s]["meta"]["phone_number"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
+                   // $this->save_consolidated_sales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"],$total_sales[$s]["meta"]["email"],$total_sales[$s]["meta"]["phone_number"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
 
                     array_push($missing_emails,$total_sales[$s]["meta"]["email"] );
     
