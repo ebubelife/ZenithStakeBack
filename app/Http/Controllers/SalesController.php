@@ -513,7 +513,7 @@ class SalesController extends Controller
         //
 
         $from = "2024-03-13";
-        $to = "2024-03-14";
+        $to = "2024-03-16";
 
         $total_sales = array();
 
@@ -521,7 +521,7 @@ class SalesController extends Controller
             
          
         curl_setopt_array($curl, [
-            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-13&to=2024-03-14&page=1',
+            CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-13&to=2024-03-16&page=1',
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_CUSTOMREQUEST => 'GET',
            
@@ -545,7 +545,7 @@ $decoded_result = json_decode($firstResultBatch, true);
             
          
     curl_setopt_array($curl, [
-        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-13&to=2024-03-14&page='.$i,
+        CURLOPT_URL => 'https://api.flutterwave.com/v3/transactions?status=successful&from=2024-03-13&to=2024-03-16&page='.$i,
         CURLOPT_RETURNTRANSFER => true,
         CURLOPT_CUSTOMREQUEST => 'GET',
        
