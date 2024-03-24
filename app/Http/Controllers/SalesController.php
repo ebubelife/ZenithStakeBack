@@ -610,7 +610,7 @@ $decoded_result = json_decode($firstResultBatch, true);
                     //save consolidated sale and create the sale in database
 
                     if($total_sales[$s]["meta"]["email"] != "ayoojuliet276@gmail.com"){
-                        $this->save_consolidated_sales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"],$total_sales[$s]["meta"]["email"],$total_sales[$s]["meta"]["phone_number"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
+                       // $this->save_consolidated_sales($total_sales[$s]["meta"]["affiliate"], $total_sales[$s]["meta"]["product"], $total_sales[$s]["meta"]["price"], $total_sales[$s]["meta"]["commission"], $total_sales[$s]["meta"]["name"],$total_sales[$s]["meta"]["email"],$total_sales[$s]["meta"]["phone_number"], $total_sales[$s]["meta"]["vendor"], $total_sales[$s]["meta"]["tx_id"], $total_sales[$s]["meta"]["currency"]);
 
                     }
                 
