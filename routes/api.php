@@ -334,7 +334,7 @@ Route::get('view/affiliates/order', function () {
     Route::get('view/affiliates', function () {
         $affiliates = Members::where('is_vendor', false)
         ->orderByDesc('created_at')
-        ->limit(100)
+       // ->limit(100)
         ->get();
     
         return response()->json( $affiliates);
